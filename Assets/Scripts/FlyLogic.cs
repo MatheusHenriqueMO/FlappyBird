@@ -7,10 +7,12 @@ public class FlyLogic : MonoBehaviour
     public float flyForce;
     private Rigidbody2D rg2D;
     public GameOver game;
+    public AudioSource aud;
     // Start is called before the first frame update
     void Start()
     {
         rg2D = GetComponent<Rigidbody2D>();
+        aud = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -21,6 +23,7 @@ public class FlyLogic : MonoBehaviour
 
     void Fly(){
         if(Input.GetMouseButtonDown(0)){
+            aud.Play();
             rg2D.velocity = Vector2.up * flyForce;
         }
     }
